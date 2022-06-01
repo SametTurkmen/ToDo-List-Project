@@ -22,11 +22,10 @@ function eventListener() { //Tüm event listenerlar
 function clearAllTodos(e) {
 
     if (confirm("Tüm Todoları silmek istediğinize emin misiniz?")) {
-
         while (todoList.firstChild != null) {
             todoList.removeChild(todoList.firstChild);
-
         }
+        
         localStorage.clear("todos");
     }
 }
@@ -39,11 +38,9 @@ function filterTodos(e) {
     listItems.forEach(listItem => {
         const text = listItem.textContent.toLowerCase();
         if (text.indexOf(filterValue) === -1) {
-            // listItem.style.display = "none !important"; // ?
             listItem.setAttribute("style", "display:none !important");
         }
         else {
-            // listItem.style.display= "block"; // ?
             listItem.setAttribute("style", "display:block");
         }
 
@@ -124,7 +121,6 @@ function showAlert(type, message) {
     alert.className = `alert alert-${type}`;
     alert.textContent = message;
 
-    // console.log(alert);
     firstCardBody.appendChild(alert);
 
     // SetTimeout
